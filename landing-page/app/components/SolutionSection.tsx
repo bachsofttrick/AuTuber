@@ -35,13 +35,13 @@ export default function SolutionSection() {
   return (
     <section
       id="solution"
-      className="px-[clamp(24px,6vw,72px)] py-32 flex flex-col items-center border-t border-[var(--divider)]"
+      className="px-[clamp(24px,6vw,72px)] py-32 flex flex-col items-center border-t border-(--divider)"
     >
       <span className="eyebrow">The Solution</span>
-      <h2 className="text-center mb-8 text-[var(--ink)] max-w-3xl">
+      <h2 className="text-center mb-8 text-(--ink) max-w-3xl">
         AuTuber is an AI agent that runs in the background as your stage hand.
       </h2>
-      <p className="text-center mb-12 text-[var(--muted)] max-w-2xl leading-relaxed">
+      <p className="text-center mb-12 text-(--muted) max-w-2xl leading-relaxed">
         Instead of you pressing shortcut keys, the agent observes your context
         from multiple sources at once. It watches your webcam, listens to your
         microphone, captures your game or work screen, and reads OBS and VTube
@@ -52,10 +52,10 @@ export default function SolutionSection() {
       <div className="grid grid--2col w-full max-w-6xl gap-6 mb-16">
         {SOLUTION_ITEMS.map((item, idx) => (
           <div key={idx} className="panel__card fadeIn">
-            <h3 className="text-[var(--ink)] mb-2 text-[1.2rem] font-600">
+            <h3 className="text-(--ink) mb-2 text-[1.2rem] font-600">
               {item.title}
             </h3>
-            <p className="text-[var(--muted)] text-[0.85rem] leading-relaxed">
+            <p className="text-(--muted) text-[0.85rem] leading-relaxed">
               {item.body}
             </p>
           </div>
@@ -64,7 +64,7 @@ export default function SolutionSection() {
 
       <div className="w-full max-w-6xl">
         <div className="relative">
-          <div className="relative w-full aspect-video rounded-[20px] overflow-hidden bg-[var(--bg-alt)]">
+          <div className="relative w-full aspect-video rounded-[20px] overflow-hidden bg-(--bg-alt)">
             <Image
               key={carouselIdx}
               src={SOLUTION_IMAGES[carouselIdx].src}
@@ -108,7 +108,7 @@ export default function SolutionSection() {
         </div>
       </div>
 
-      <p className="text-center mt-12 text-[var(--muted)] max-w-2xl leading-relaxed">
+      <p className="text-center mt-12 text-(--muted) max-w-2xl leading-relaxed">
         You keep your existing OBS scenes, VTS hotkeys, and platform setup.
         AuTuber plugs into them.
       </p>

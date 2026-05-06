@@ -2,7 +2,7 @@ export default function DemoSection() {
   return (
     <section
       id="demo"
-      className="px-[clamp(24px,6vw,72px)] py-32 flex flex-col items-center border-t border-[var(--divider)]"
+      className="px-[clamp(24px,6vw,72px)] py-32 flex flex-col items-center border-t border-(--divider)"
     >
       <span className="eyebrow">Demo</span>
       <div className="w-full max-w-4xl">

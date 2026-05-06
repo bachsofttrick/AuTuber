@@ -96,14 +96,14 @@ export default function WhySection() {
   return (
     <section
       id="why"
-      className="px-[clamp(24px,6vw,72px)] py-32 flex flex-col items-center border-t border-[var(--divider)]"
+      className="px-[clamp(24px,6vw,72px)] py-32 flex flex-col items-center border-t border-(--divider)"
     >
       <span className="eyebrow">Why AuTuber</span>
-      <h2 className="text-center mb-8 text-[var(--ink)] max-w-3xl">
+      <h2 className="text-center mb-8 text-(--ink) max-w-3xl">
         The streaming automation market exists, and every product in it stops
         short of contextual intelligence.
       </h2>
-      <p className="text-center mb-12 text-[var(--muted)] max-w-2xl leading-relaxed">
+      <p className="text-center mb-12 text-(--muted) max-w-2xl leading-relaxed">
         We surveyed the competitive landscape across event-based automation
         platforms, hardware controllers, AI co-pilots, and OBS/VTS plugins.
       </p>
@@ -111,23 +111,23 @@ export default function WhySection() {
       <div className="w-full max-w-6xl mb-12 overflow-x-auto">
         <table className="w-full border-collapse">
           <thead>
-            <tr className="bg-[var(--accent)] text-white">
-              <th className="border border-[var(--panel-border)] px-4 py-3 text-left font-600">
+            <tr className="bg-(--accent) text-white">
+              <th className="border border-(--panel-border) px-4 py-3 text-left font-600">
                 Product
               </th>
-              <th className="border border-[var(--panel-border)] px-4 py-3 text-left font-600">
+              <th className="border border-(--panel-border) px-4 py-3 text-left font-600">
                 OBS
               </th>
-              <th className="border border-[var(--panel-border)] px-4 py-3 text-left font-600">
+              <th className="border border-(--panel-border) px-4 py-3 text-left font-600">
                 VTS
               </th>
-              <th className="border border-[var(--panel-border)] px-4 py-3 text-left font-600">
+              <th className="border border-(--panel-border) px-4 py-3 text-left font-600">
                 LLM
               </th>
-              <th className="border border-[var(--panel-border)] px-4 py-3 text-left font-600">
+              <th className="border border-(--panel-border) px-4 py-3 text-left font-600">
                 Multimodal Context
               </th>
-              <th className="border border-[var(--panel-border)] px-4 py-3 text-left font-600">
+              <th className="border border-(--panel-border) px-4 py-3 text-left font-600">
                 Cost
               </th>
             </tr>
@@ -136,45 +136,45 @@ export default function WhySection() {
             {COMPETITORS.map((row) => (
               <tr
                 key={row.name}
-                className={row.alt ? "bg-[var(--panel)]" : "bg-[var(--bg-alt)]"}
+                className={row.alt ? "bg-(--panel)" : "bg-(--bg-alt)"}
               >
-                <td className="border border-[var(--panel-border)] px-4 py-3 font-500">
+                <td className="border border-(--panel-border) px-4 py-3 font-500">
                   {row.name}
                 </td>
-                <td className="border border-[var(--panel-border)] px-4 py-3">
+                <td className="border border-(--panel-border) px-4 py-3">
                   {row.obs}
                 </td>
-                <td className="border border-[var(--panel-border)] px-4 py-3">
+                <td className="border border-(--panel-border) px-4 py-3">
                   {row.vts}
                 </td>
-                <td className="border border-[var(--panel-border)] px-4 py-3">
+                <td className="border border-(--panel-border) px-4 py-3">
                   {row.llm}
                 </td>
-                <td className="border border-[var(--panel-border)] px-4 py-3">
+                <td className="border border-(--panel-border) px-4 py-3">
                   {row.context}
                 </td>
-                <td className="border border-[var(--panel-border)] px-4 py-3">
+                <td className="border border-(--panel-border) px-4 py-3">
                   {row.cost}
                 </td>
               </tr>
             ))}
-            <tr className="bg-[var(--accent-soft)] text-[var(--accent-strong)]">
-              <td className="border border-[var(--panel-border)] px-4 py-3 font-600">
+            <tr className="bg-(--accent-soft) text-(--accent-strong)">
+              <td className="border border-(--panel-border) px-4 py-3 font-600">
                 AuTuber
               </td>
-              <td className="border border-[var(--panel-border)] px-4 py-3 font-600">
+              <td className="border border-(--panel-border) px-4 py-3 font-600">
                 Yes
               </td>
-              <td className="border border-[var(--panel-border)] px-4 py-3 font-600">
+              <td className="border border-(--panel-border) px-4 py-3 font-600">
                 Yes
               </td>
-              <td className="border border-[var(--panel-border)] px-4 py-3 font-600">
+              <td className="border border-(--panel-border) px-4 py-3 font-600">
                 Yes
               </td>
-              <td className="border border-[var(--panel-border)] px-4 py-3 font-600">
+              <td className="border border-(--panel-border) px-4 py-3 font-600">
                 Camera + Screen + Audio + State
               </td>
-              <td className="border border-[var(--panel-border)] px-4 py-3 font-600">
+              <td className="border border-(--panel-border) px-4 py-3 font-600">
                 Open
               </td>
             </tr>
@@ -186,10 +186,10 @@ export default function WhySection() {
         <div className="space-y-6">
           {DIFFERENTIATORS.map((item) => (
             <div key={item.number} className="panel__card fadeIn">
-              <div className="font-bold text-[var(--accent)] mb-2">
+              <div className="font-bold text-(--accent) mb-2">
                 {item.number}. {item.title}
               </div>
-              <p className="text-[var(--muted)] text-[0.85rem] leading-relaxed">
+              <p className="text-(--muted) text-[0.85rem] leading-relaxed">
                 {item.body}
               </p>
             </div>

@@ -36,8 +36,8 @@ export default function Nav({ links, activeSection, onNavClick }: NavProps) {
 
   return (
     <nav className="app-nav fixed top-0 left-0 right-0 z-50 justify-between">
-      <div className="text-base font-bold text-[var(--ink)]">
-        Au<span className="text-[var(--accent)]">Tuber</span>
+      <div className="text-base font-bold text-(--ink)">
+        Au<span className="text-(--accent)">Tuber</span>
       </div>
 
       {/* Desktop: individual tab buttons */}

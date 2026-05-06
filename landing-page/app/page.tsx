@@ -51,13 +51,13 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col w-full bg-[var(--bg)]">
+    <div className="flex flex-col w-full bg-(--bg)">
       <Nav
         links={NAV_LINKS}
         activeSection={activeSection}
         onNavClick={handleNavClick}
       />
-      <main className="pt-[40px] flex flex-col w-full gap-16">
+      <main className="pt-10 flex flex-col w-full gap-16">
         <HeroSection onScrollToDemo={() => handleNavClick("demo")} />
         <ProblemSection />
         <SolutionSection />
