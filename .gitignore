@@ -4,3 +4,4 @@ electron/release
 electron/.env
 node_modules
 release
+.next
