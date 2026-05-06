@@ -382,6 +382,53 @@ textarea::placeholder {
   text-align: left;
 }
 
+/* Nav dropdown (mobile only) */
+.nav-tabs-desktop {
+  display: flex;
+}
+
+.nav-dropdown-mobile {
+  display: none;
+  position: relative;
+}
+
+.nav-dropdown__menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+  display: flex;
+  flex-direction: column;
+  min-width: 140px;
+  overflow: hidden;
+  animation: fadeIn 150ms ease-out;
+}
+
+.nav-dropdown__item {
+  padding: 10px 16px;
+  text-align: left;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease;
+  white-space: nowrap;
+}
+
+.nav-dropdown__item:hover {
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+.nav-dropdown__item--active {
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-weight: 600;
+}
+
 /* Responsive Adjustments */
 @media (max-width: 1024px) {
   .grid--5col {
@@ -392,6 +439,14 @@ textarea::placeholder {
 @media (max-width: 720px) {
   body {
     padding: 0;
+  }
+
+  .nav-tabs-desktop {
+    display: none;
+  }
+
+  .nav-dropdown-mobile {
+    display: block;
   }
 
   .grid--2col {
