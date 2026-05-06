@@ -5,3 +5,4 @@ electron/.env
 node_modules
 release
 .next
+out
