@@ -58,6 +58,13 @@ const SOLUTION_ITEMS = [
   },
 ];
 
+const SOLUTION_IMAGES = [
+  { src: "/images/antuber/general.png", alt: "AuTuber general overview" },
+  { src: "/images/antuber/screen1.png", alt: "AuTuber screen 1" },
+  { src: "/images/antuber/screen2.png", alt: "AuTuber screen 2" },
+  { src: "/images/antuber/screen3.png", alt: "AuTuber screen 3" },
+];
+
 const TEAM_MEMBERS = [
   {
     name: "Jacob Berger",
@@ -79,6 +86,7 @@ const TEAM_MEMBERS = [
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<string>("");
+  const [carouselIdx, setCarouselIdx] = useState(0);
   const sectionRefs = useRef<Map<string, IntersectionObserverEntry>>(new Map());
   const observerRef = useRef<IntersectionObserver | null>(null);
 
@@ -142,13 +150,13 @@ export default function Home() {
         </div>
       </nav>
 
-      <main className="pt-[40px] flex flex-col w-full">
+      <main className="pt-[40px] flex flex-col w-full gap-16">
         {/* Hero Section */}
-        <section className="min-h-screen flex flex-col items-center justify-center px-[clamp(20px,6vw,72px)] py-32 text-center fadeIn">
+        <section className="min-h-screen flex flex-col items-center justify-center px-[clamp(24px,6vw,72px)] py-32 text-center fadeIn">
           <h1 className="max-w-3xl mb-6 text-[var(--ink)]">
             Your AI stage hand for live streaming.
           </h1>
-          <p className="max-w-2xl mb-8 text-[0.85rem] text-[var(--muted)] leading-relaxed">
+          <p className="max-w-2xl mb-8 text-[var(--muted)] leading-relaxed">
             We watch the camera, the screen, and the mic so you can focus on the
             show.
           </p>
@@ -160,7 +168,7 @@ export default function Home() {
               Watch the Demo
             </button>
             <a
-              href="https://github.com/bachsofttrick/autuber-vts"
+              href="https://github.com/bachsofttrick/autuber"
               target="_blank"
               rel="noopener noreferrer"
               className="pill-btn pill-btn--secondary"
@@ -173,7 +181,7 @@ export default function Home() {
         {/* Problem Section */}
         <section
           id="problem"
-          className="px-[clamp(20px,6vw,72px)] py-32 flex flex-col items-center"
+          className="px-[clamp(24px,6vw,72px)] py-32 flex flex-col items-center border-t border-[var(--divider)]"
         >
           <span className="eyebrow">The Problem</span>
           <h2 className="text-center mb-12 text-[var(--ink)] max-w-3xl">
@@ -185,7 +193,7 @@ export default function Home() {
             jobs at once. They play the game, they read chat, they react to
             alerts, and they pilot OBS and VTube Studio with hotkeys.
           </p>
-          <div className="grid grid--auto w-full max-w-6xl">
+          <div className="grid grid--5col w-full max-w-6xl">
             {PROBLEM_ITEMS.map((item, idx) => (
               <div key={idx} className="panel__card fadeIn">
                 <h3 className="text-[var(--ink)] mb-2 text-[1.2rem] font-600">
@@ -197,7 +205,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <p className="text-center mt-12 text-[var(--muted)] max-w-2xl leading-relaxed">
+          <p className="closing-statement mt-12 max-w-2xl">
             Small and mid-size streamers cannot afford a producer to handle
             this. They need software that does it for them.
           </p>
@@ -206,7 +214,7 @@ export default function Home() {
         {/* Solution Section */}
         <section
           id="solution"
-          className="px-[clamp(20px,6vw,72px)] py-32 flex flex-col items-center"
+          className="px-[clamp(24px,6vw,72px)] py-32 flex flex-col items-center border-t border-[var(--divider)]"
         >
           <span className="eyebrow">The Solution</span>
           <h2 className="text-center mb-8 text-[var(--ink)] max-w-3xl">
@@ -235,41 +243,50 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Image Gallery */}
+          {/* Image Carousel */}
           <div className="w-full max-w-6xl">
-            <div className="grid grid--2col gap-6">
-              <div className="relative w-full aspect-square">
+            <div className="relative">
+              <div className="relative w-full aspect-video rounded-[20px] overflow-hidden bg-[var(--bg-alt)]">
                 <Image
-                  src="/images/antuber/general.png"
-                  alt="AuTuber general"
+                  key={carouselIdx}
+                  src={SOLUTION_IMAGES[carouselIdx].src}
+                  alt={SOLUTION_IMAGES[carouselIdx].alt}
                   fill
-                  className="object-cover rounded-[20px]"
+                  sizes="(max-width: 72rem) 100vw, 72rem"
+                  className="object-contain fadeIn"
                 />
               </div>
-              <div className="relative w-full aspect-square">
-                <Image
-                  src="/images/antuber/screen1.png"
-                  alt="AuTuber screen 1"
-                  fill
-                  className="object-cover rounded-[20px]"
+              <button
+                onClick={() =>
+                  setCarouselIdx(
+                    (carouselIdx - 1 + SOLUTION_IMAGES.length) %
+                      SOLUTION_IMAGES.length
+                  )
+                }
+                className="carousel__btn carousel__btn--prev"
+                aria-label="Previous image"
+              >
+                ‹
+              </button>
+              <button
+                onClick={() =>
+                  setCarouselIdx((carouselIdx + 1) % SOLUTION_IMAGES.length)
+                }
+                className="carousel__btn carousel__btn--next"
+                aria-label="Next image"
+              >
+                ›
+              </button>
+            </div>
+            <div className="carousel__dots">
+              {SOLUTION_IMAGES.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCarouselIdx(i)}
+                  className={`carousel__dot ${i === carouselIdx ? "carousel__dot--active" : ""}`}
+                  aria-label={`Go to image ${i + 1}`}
                 />
-              </div>
-              <div className="relative w-full aspect-square">
-                <Image
-                  src="/images/antuber/screen2.png"
-                  alt="AuTuber screen 2"
-                  fill
-                  className="object-cover rounded-[20px]"
-                />
-              </div>
-              <div className="relative w-full aspect-square">
-                <Image
-                  src="/images/antuber/screen3.png"
-                  alt="AuTuber screen 3"
-                  fill
-                  className="object-cover rounded-[20px]"
-                />
-              </div>
+              ))}
             </div>
           </div>
 
@@ -282,7 +299,7 @@ export default function Home() {
         {/* Why Section */}
         <section
           id="why"
-          className="px-[clamp(20px,6vw,72px)] py-32 flex flex-col items-center"
+          className="px-[clamp(24px,6vw,72px)] py-32 flex flex-col items-center border-t border-[var(--divider)]"
         >
           <span className="eyebrow">Why AuTuber</span>
           <h2 className="text-center mb-8 text-[var(--ink)] max-w-3xl">
@@ -539,7 +556,7 @@ export default function Home() {
         {/* Demo Section */}
         <section
           id="demo"
-          className="px-[clamp(20px,6vw,72px)] py-32 flex flex-col items-center"
+          className="px-[clamp(24px,6vw,72px)] py-32 flex flex-col items-center border-t border-[var(--divider)]"
         >
           <span className="eyebrow">Demo</span>
           <div className="w-full max-w-4xl">
@@ -576,7 +593,7 @@ export default function Home() {
         {/* Team Section */}
         <section
           id="team"
-          className="px-[clamp(20px,6vw,72px)] py-32 flex flex-col items-center"
+          className="px-[clamp(24px,6vw,72px)] py-32 flex flex-col items-center border-t border-[var(--divider)]"
         >
           <span className="eyebrow">Development Team</span>
 

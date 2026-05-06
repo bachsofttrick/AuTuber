@@ -5,13 +5,13 @@ import "./globals.css";
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
-  weights: [400, 500, 600, 700],
+  weight: ["400", "500", "600", "700"],
 });
 
 const ibmPlexMono = IBM_Plex_Mono({
   variable: "--font-ibm-plex-mono",
   subsets: ["latin"],
-  weights: [400, 600],
+  weight: ["400", "600"],
 });
 
 export const metadata: Metadata = {
