@@ -17,7 +17,7 @@ export default function HeroSection({ onScrollToDemo }: HeroSectionProps) {
           Watch the Demo
         </button>
         <a
-          href="https://github.com/bachsofttrick/autuber"
+          href="https://github.com/waiyanzt/AuTuber"
           target="_blank"
           rel="noopener noreferrer"
           className="pill-btn pill-btn--secondary"
