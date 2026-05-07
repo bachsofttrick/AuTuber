@@ -1,7 +1,4 @@
-"use client";
-
-import { useState } from "react";
-import Image from "next/image";
+import ImageGallery from "./ImageGallery";
 import SectionWrapper from "./SectionWrapper";
 
 const SOLUTION_ITEMS = [
@@ -31,8 +28,6 @@ const SOLUTION_IMAGES = [
 ];
 
 export default function SolutionSection() {
-  const [carouselIdx, setCarouselIdx] = useState(0);
-
   return (
     <SectionWrapper id="solution" title="The Solution">
       <h2 className="text-center mb-8 text-(--ink) max-w-3xl">
@@ -59,51 +54,7 @@ export default function SolutionSection() {
         ))}
       </div>
 
-      <div className="w-full max-w-6xl">
-        <div className="relative">
-          <div className="relative w-full aspect-video rounded-[20px] overflow-hidden bg-(--bg-alt)">
-            <Image
-              key={carouselIdx}
-              src={SOLUTION_IMAGES[carouselIdx].src}
-              alt={SOLUTION_IMAGES[carouselIdx].alt}
-              fill
-              sizes="(max-width: 72rem) 100vw, 72rem"
-              className="object-contain fadeIn"
-            />
-          </div>
-          <button
-            onClick={() =>
-              setCarouselIdx(
-                (carouselIdx - 1 + SOLUTION_IMAGES.length) %
-                  SOLUTION_IMAGES.length
-              )
-            }
-            className="carousel__btn carousel__btn--prev"
-            aria-label="Previous image"
-          >
-            ‹
-          </button>
-          <button
-            onClick={() =>
-              setCarouselIdx((carouselIdx + 1) % SOLUTION_IMAGES.length)
-            }
-            className="carousel__btn carousel__btn--next"
-            aria-label="Next image"
-          >
-            ›
-          </button>
-        </div>
-        <div className="carousel__dots">
-          {SOLUTION_IMAGES.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCarouselIdx(i)}
-              className={`carousel__dot ${i === carouselIdx ? "carousel__dot--active" : ""}`}
-              aria-label={`Go to image ${i + 1}`}
-            />
-          ))}
-        </div>
-      </div>
+      <ImageGallery images={SOLUTION_IMAGES} />
 
       <p className="text-center mt-12 text-(--muted) max-w-2xl leading-relaxed">
         You keep your existing OBS scenes, VTS hotkeys, and platform setup.
