@@ -1,0 +1,39 @@
+@media (max-width: 1024px) {
+  .grid--5col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 0;
+  }
+
+  .nav-tabs-desktop {
+    display: none;
+  }
+
+  .nav-dropdown-mobile {
+    display: block;
+  }
+
+  .grid--2col {
+    grid-template-columns: 1fr;
+  }
+
+  .grid--5col {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    padding: 24px 20px;
+  }
+
+  .panel__card {
+    padding: 16px;
+  }
+
+  .closing-statement {
+    font-size: 0.95rem;
+  }
+}

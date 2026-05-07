@@ -1,0 +1,84 @@
+/* Utility Classes */
+.eyebrow {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--accent-strong);
+  display: block;
+  margin-bottom: 16px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 28px;
+  padding: 32px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+}
+
+.panel__card {
+  padding: 20px;
+  border: 1px solid var(--panel-border);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+/* Meter / Progress Bar */
+.meter {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(205, 180, 255, 0.18);
+  overflow: hidden;
+}
+
+.meter__bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent));
+  transition: width 150ms ease;
+}
+
+/* Form Inputs */
+input,
+select,
+textarea {
+  border: 1px solid var(--panel-border);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink);
+  padding: 8px 10px;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+}
+
+/* Responsive Grid */
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid--auto {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.grid--2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--5col {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.closing-statement {
+  border-left: 3px solid var(--accent);
+  padding-left: 24px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.7;
+  text-align: left;
+}

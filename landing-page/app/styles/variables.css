@@ -1,0 +1,22 @@
+:root {
+  /* Colors */
+  --bg: #fff7fb;
+  --bg-alt: #fff0f6;
+  --ink: #2a2a2a;
+  --muted: #6b7280;
+  --panel: rgba(255, 255, 255, 0.92);
+  --panel-border: #ffd6e7;
+  --divider: #f0f2f5;
+  --accent: #ff8db8;
+  --accent-strong: #ff7daf;
+  --accent-soft: rgba(255, 141, 184, 0.16);
+  --accent-peach: #ffc89e;
+  --accent-cyan: #7ee9f3;
+  --accent-mint: #b8f5d6;
+  --accent-purple: #cdb4ff;
+  --warning: #d97706;
+  --success: #4b9f7a;
+  --shadow: 0 24px 80px rgba(255, 141, 184, 0.14);
+
+  color-scheme: light;
+}
