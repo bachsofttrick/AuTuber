@@ -92,13 +92,11 @@ const DIFFERENTIATORS = [
   },
 ];
 
+import SectionWrapper from "./SectionWrapper";
+
 export default function WhySection() {
   return (
-    <section
-      id="why"
-      className="px-[clamp(24px,6vw,72px)] py-32 flex flex-col items-center border-t border-(--divider)"
-    >
-      <span className="eyebrow">Why AuTuber</span>
+    <SectionWrapper id="why" title="Why AuTuber">
       <h2 className="text-center mb-8 text-(--ink) max-w-3xl">
         The streaming automation market exists, and every product in it stops
         short of contextual intelligence.
@@ -196,6 +194,6 @@ export default function WhySection() {
           ))}
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 }

@@ -1,10 +1,8 @@
+import SectionWrapper from "./SectionWrapper";
+
 export default function DemoSection() {
   return (
-    <section
-      id="demo"
-      className="px-[clamp(24px,6vw,72px)] py-32 flex flex-col items-center border-t border-(--divider)"
-    >
-      <span className="eyebrow">Demo</span>
+    <SectionWrapper id="demo" title="Demo">
       <div className="w-full max-w-4xl">
         <div className="panel fadeIn">
           <div
@@ -34,6 +32,6 @@ export default function DemoSection() {
           </div>
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 }

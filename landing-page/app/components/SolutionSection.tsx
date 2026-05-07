@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import SectionWrapper from "./SectionWrapper";
 
 const SOLUTION_ITEMS = [
   {
@@ -33,11 +34,7 @@ export default function SolutionSection() {
   const [carouselIdx, setCarouselIdx] = useState(0);
 
   return (
-    <section
-      id="solution"
-      className="px-[clamp(24px,6vw,72px)] py-32 flex flex-col items-center border-t border-(--divider)"
-    >
-      <span className="eyebrow">The Solution</span>
+    <SectionWrapper id="solution" title="The Solution">
       <h2 className="text-center mb-8 text-(--ink) max-w-3xl">
         AuTuber is an AI agent that runs in the background as your stage hand.
       </h2>
@@ -112,6 +109,6 @@ export default function SolutionSection() {
         You keep your existing OBS scenes, VTS hotkeys, and platform setup.
         AuTuber plugs into them.
       </p>
-    </section>
+    </SectionWrapper>
   );
 }

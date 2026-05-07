@@ -21,13 +21,11 @@ const PROBLEM_ITEMS = [
   },
 ];
 
+import SectionWrapper from "./SectionWrapper";
+
 export default function ProblemSection() {
   return (
-    <section
-      id="problem"
-      className="px-[clamp(24px,6vw,72px)] py-32 flex flex-col items-center border-t border-(--divider)"
-    >
-      <span className="eyebrow">The Problem</span>
+    <SectionWrapper id="problem" title="The Problem">
       <h2 className="text-center mb-12 text-(--ink) max-w-3xl">
         Live streaming has exploded, and the streamer is drowning in manual
         work.
@@ -53,6 +51,6 @@ export default function ProblemSection() {
         Small and mid-size streamers cannot afford a producer to handle this.
         They need software that does it for them.
       </p>
-    </section>
+    </SectionWrapper>
   );
 }

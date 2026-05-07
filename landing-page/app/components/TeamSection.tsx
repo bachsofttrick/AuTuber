@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SectionWrapper from "./SectionWrapper";
 
 const TEAM_MEMBERS = [
   {
@@ -21,11 +22,7 @@ const TEAM_MEMBERS = [
 
 export default function TeamSection() {
   return (
-    <section
-      id="team"
-      className="px-[clamp(24px,6vw,72px)] py-32 flex flex-col items-center border-t border-(--divider)"
-    >
-      <span className="eyebrow">Development Team</span>
+    <SectionWrapper id="team" title="Development Team">
 
       <div className="w-full max-w-6xl mb-12">
         <div className="relative w-full aspect-video">
@@ -54,6 +51,6 @@ export default function TeamSection() {
           </div>
         ))}
       </div>
-    </section>
+    </SectionWrapper>
   );
 }
