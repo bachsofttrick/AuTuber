@@ -10,7 +10,7 @@ export default function SectionWrapper({
   return (
     <section
       id={id}
-      className="px-[clamp(24px,6vw,72px)] py-32 flex flex-col items-center border-t border-(--divider)"
+      className="px-[clamp(24px,6vw,72px)] py-4 flex flex-col items-center border-t border-(--divider)"
     >
       <span className="eyebrow">{title}</span>
       {children}

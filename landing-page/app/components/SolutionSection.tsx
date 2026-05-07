@@ -21,10 +21,13 @@ const SOLUTION_ITEMS = [
 ];
 
 const SOLUTION_IMAGES = [
-  { src: "/images/antuber/general.png", alt: "AuTuber general overview" },
-  { src: "/images/antuber/screen1.png", alt: "AuTuber screen 1" },
-  { src: "/images/antuber/screen2.png", alt: "AuTuber screen 2" },
-  { src: "/images/antuber/screen3.png", alt: "AuTuber screen 3" },
+  { src: "/images/solution/general1.png", alt: "AuTuber general 1" },
+  { src: "/images/solution/general2.png", alt: "AuTuber general 2" },
+  { src: "/images/solution/general3.png", alt: "AuTuber general 3" },
+  { src: "/images/solution/general4.png", alt: "AuTuber general 4" },
+  { src: "/images/solution/screen1.png", alt: "AuTuber screen 1" },
+  { src: "/images/solution/screen2.png", alt: "AuTuber screen 2" },
+  { src: "/images/solution/screen3.png", alt: "AuTuber screen 3" },
 ];
 
 export default function SolutionSection() {

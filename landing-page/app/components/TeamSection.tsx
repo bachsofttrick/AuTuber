@@ -1,5 +1,10 @@
-import Image from "next/image";
+import ImageGallery from "./ImageGallery";
 import SectionWrapper from "./SectionWrapper";
+
+const TEAM_PHOTOS = [
+  { src: "/images/dev-team.png",   alt: "Development team 1" },
+  { src: "/images/dev-team-2.png", alt: "Development team 2" },
+];
 
 const TEAM_MEMBERS = [
   {
@@ -25,14 +30,7 @@ export default function TeamSection() {
     <SectionWrapper id="team" title="Development Team">
 
       <div className="w-full max-w-6xl mb-12">
-        <div className="relative w-full aspect-video">
-          <Image
-            src="/images/dev-team.png"
-            alt="Development team"
-            fill
-            className="object-cover rounded-[28px]"
-          />
-        </div>
+        <ImageGallery images={TEAM_PHOTOS} />
       </div>
 
       <div className="grid grid--2col w-full max-w-6xl gap-6">
