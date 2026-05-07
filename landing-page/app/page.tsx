@@ -57,7 +57,7 @@ export default function Home() {
         activeSection={activeSection}
         onNavClick={handleNavClick}
       />
-      <main className="pt-10 flex flex-col w-full gap-16">
+      <main className="pt-10 flex flex-col w-full gap-16 max-w-6xl m-auto">
         <HeroSection onScrollToDemo={() => handleNavClick("demo")} />
         <ProblemSection />
         <SolutionSection />
