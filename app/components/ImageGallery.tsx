@@ -1,7 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { createPortal } from "react-dom";
 
 type GalleryImage = { src: string; alt: string };
@@ -67,13 +67,11 @@ export default function ImageGallery({ images }: { images: GalleryImage[] }) {
             className="relative w-full aspect-video rounded-[20px] overflow-hidden bg-(--bg-alt) cursor-zoom-in"
             onClick={() => setLightboxOpen(true)}
           >
-            <Image
+            <img
               key={idx}
               src={images[idx].src}
               alt={images[idx].alt}
-              fill
-              sizes="(max-width: 72rem) 100vw, 72rem"
-              className={`object-contain ${slideClass}`}
+              className={`object-contain w-full h-full ${slideClass}`}
             />
           </div>
           {navButtons}
@@ -85,14 +83,11 @@ export default function ImageGallery({ images }: { images: GalleryImage[] }) {
         <div className="lightbox" onClick={() => setLightboxOpen(false)}>
           <button className="lightbox__close" onClick={() => setLightboxOpen(false)} aria-label="Close lightbox">✕</button>
           <div className="lightbox__content" onClick={(e) => e.stopPropagation()}>
-            <Image
+            <img
               key={`lb-${idx}`}
               src={images[idx].src}
               alt={images[idx].alt}
-              fill
-              sizes="min(92vw, 1280px)"
-              className={`object-contain ${slideClass}`}
-              priority
+              className={`object-contain w-full h-full ${slideClass}`}
             />
             {navButtons}
           </div>
