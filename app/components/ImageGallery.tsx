@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 
 type GalleryImage = { src: string; alt: string };
@@ -10,6 +10,7 @@ export default function ImageGallery({ images }: { images: GalleryImage[] }) {
   const [idx, setIdx] = useState(0);
   const [dir, setDir] = useState<"left" | "right">("right");
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const touchStartX = useRef<number>(0);
 
   const prev = () => {
     setDir("left");
@@ -36,6 +37,17 @@ export default function ImageGallery({ images }: { images: GalleryImage[] }) {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [lightboxOpen, images.length]);
+
+  const handlePointerDown = (e: React.PointerEvent) => {
+    e.preventDefault();
+    touchStartX.current = e.clientX;
+  };
+  const handlePointerUp = (e: React.PointerEvent) => {
+    e.preventDefault();
+    const delta = e.clientX - touchStartX.current;
+    if (Math.abs(delta) < 50) return;
+    if (delta < 0) next(); else prev();
+  };
 
   const slideClass = dir === "right" ? "slideInRight" : "slideInLeft";
 
@@ -66,8 +78,11 @@ export default function ImageGallery({ images }: { images: GalleryImage[] }) {
           <div
             className="relative w-full aspect-video rounded-[20px] overflow-hidden bg-(--bg-alt) cursor-zoom-in"
             onClick={() => setLightboxOpen(true)}
+            onPointerDown={handlePointerDown}
+            onPointerUp={handlePointerUp}
           >
             <img
+              draggable={false}
               key={idx}
               src={images[idx].src}
               alt={images[idx].alt}
@@ -82,8 +97,9 @@ export default function ImageGallery({ images }: { images: GalleryImage[] }) {
       {lightboxOpen && createPortal(
         <div className="lightbox" onClick={() => setLightboxOpen(false)}>
           <button className="lightbox__close" onClick={() => setLightboxOpen(false)} aria-label="Close lightbox">✕</button>
-          <div className="lightbox__content" onClick={(e) => e.stopPropagation()}>
+          <div className="lightbox__content" onClick={(e) => e.stopPropagation()} onPointerDown={handlePointerDown} onPointerUp={handlePointerUp}>
             <img
+              draggable={false}
               key={`lb-${idx}`}
               src={images[idx].src}
               alt={images[idx].alt}
