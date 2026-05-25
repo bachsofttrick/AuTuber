@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
+import { GoogleAnalytics } from '@next/third-parties/google'
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -32,6 +33,7 @@ export default function RootLayout({
         fontFamily: 'var(--font-space-grotesk), "Segoe UI", sans-serif',
       }}
     >
+      <GoogleAnalytics gaId="G-PJPSQVZLTF" />
       <body>{children}</body>
     </html>
   );
